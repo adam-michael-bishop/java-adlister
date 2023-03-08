@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "CountServlet", urlPatterns = "/count2")
+@WebServlet(name = "CountServlet", urlPatterns = "/count")
 public class CountServlet extends HttpServlet {
     private int count = 0;
     @Override
