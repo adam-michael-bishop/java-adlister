@@ -1,3 +1,5 @@
+package adam_bishop_exercises;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -6,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "HelloWorldServlet", urlPatterns = "/hello")
+@WebServlet(name = "adam_bishop_exercises.HelloWorldServlet", urlPatterns = "/hello")
 public class HelloWorldServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String name = req.getParameter("name");

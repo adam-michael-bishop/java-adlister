@@ -1,3 +1,5 @@
+package adam_bishop_exercises;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -6,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "CountServlet", urlPatterns = "/count")
+@WebServlet(name = "adam_bishop_exercises.CountServlet", urlPatterns = "/count")
 public class CountServlet extends HttpServlet {
     private int count = 0;
     @Override
