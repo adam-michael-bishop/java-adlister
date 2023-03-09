@@ -21,7 +21,6 @@ public class ViewColorServlet extends HttpServlet {
         } catch (Exception e) {
             background = Color.white; // Not defined
         }
-        System.out.println("background = " + background);
         req.setAttribute("backgroundColor", color);
         req.setAttribute("textColor", getTextColorString(background));
         req.getRequestDispatcher("/servlets_with_jsps/view-color.jsp").forward(req, resp);
@@ -29,7 +28,6 @@ public class ViewColorServlet extends HttpServlet {
 
     private String getTextColorString(Color background) {
         double composite = (background.getRed() * 0.299) + (background.getGreen() * 0.587) + (background.getBlue() * 0.114);
-        System.out.println("composite = " + composite);
         if (composite > 186) {
             return "black";
         }
