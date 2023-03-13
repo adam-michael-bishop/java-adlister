@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface Ads {
     List<Ad> all();
-    public void insert(long id, String title, String description);
+    public Long insert(Ad ad);
 }
