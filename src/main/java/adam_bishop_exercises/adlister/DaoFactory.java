@@ -1,11 +1,13 @@
 package adam_bishop_exercises.adlister;
 
+import adam_bishop_exercises.Config;
+
 public class DaoFactory {
-    private static Ads adsDao;
+    private static MySQLAdsDao adsDao;
 
     public static Ads getAdsDao() {
         if (adsDao == null) {
-            adsDao = new ListAdsDao();
+            adsDao = new MySQLAdsDao(Config.getConfig());
         }
         return adsDao;
     }
