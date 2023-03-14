@@ -4,6 +4,7 @@
 <body class="container">
 <h1>hello.</h1>
 <ul class="list-group">
+    <li class="list-group-item"><a href="${pageContext.request.contextPath}/ads">Ad Lister</a></li>
     <li class="list-group-item"><a href="${pageContext.request.contextPath}/guess">Guessing game</a></li>
     <li class="list-group-item"><a href="${pageContext.request.contextPath}/pickcolor">Pick a color</a></li>
     <li class="list-group-item"><a href="${pageContext.request.contextPath}/pizza-order">Pizza order</a></li>
