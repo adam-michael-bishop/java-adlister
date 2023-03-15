@@ -22,8 +22,38 @@ public class MySQLUsersDao implements Users{
     }
 
     @Override
+    public boolean validateUsernamePassword(String username, String password) {
+        try {
+            String sql = "SELECT * FROM ad_lister_users WHERE username = ? and password = ?";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            ResultSet rs = stmt.executeQuery();
+            return rs.next();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving user.", e);
+        }
+    }
+
+    @Override
     public User findByUsername(String username) {
-        return null;
+        try {
+            String sql = "SELECT * FROM ad_lister_users WHERE username = ?;";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                User user = new User();
+                user.setId(rs.getLong("user_id"));
+                user.setUsername(rs.getString("username"));
+                user.setEmail(rs.getString("email"));
+                return user;
+            } else {
+                return null;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving user.", e);
+        }
     }
 
     @Override
