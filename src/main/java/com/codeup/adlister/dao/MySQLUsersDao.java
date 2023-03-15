@@ -42,17 +42,22 @@ public class MySQLUsersDao implements Users{
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, username);
             ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                User user = new User();
-                user.setId(rs.getLong("user_id"));
-                user.setUsername(rs.getString("username"));
-                user.setEmail(rs.getString("email"));
-                return user;
-            } else {
-                return null;
-            }
+            return getUserFromResultSet(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving user.", e);
+        }
+    }
+
+    private static User getUserFromResultSet(ResultSet rs) throws SQLException {
+        if (rs.next()) {
+            User user = new User();
+            user.setId(rs.getLong("user_id"));
+            user.setUsername(rs.getString("username"));
+            user.setEmail(rs.getString("email"));
+            user.setPassword(rs.getString("password"));
+            return user;
+        } else {
+            return null;
         }
     }
 
